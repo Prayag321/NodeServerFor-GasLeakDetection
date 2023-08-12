@@ -1,4 +1,4 @@
-const sdmodel = require("../models/sdmodel");
+const sdmodel = require("../models/sdmodel");// import model
 
 const getAllSensorData = async(req,res)=>{
     const dbData = await sdmodel

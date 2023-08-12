@@ -6,8 +6,9 @@ const SensorData_routes = require("./routes/SensorData");//import routes
 const connectDB = require("./db/connect");
 
 app.get("/",(req,res)=>{res.send("hello")});//test
-app.use("/api/sensordata",SensorData_routes);//set souter middleware
+app.use("/api/sensordata",SensorData_routes);//set souter middleware for api
 
+app.use("/receiveData",receiveData_routes);//for receiving data from nodemcu
 const start = async()=>{
     try{
         await connectDB();
