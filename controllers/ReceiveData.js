@@ -39,6 +39,7 @@ if (req.method === 'POST')
             console.log('Received sensor data:');
             console.log('Temperature:', temperature, '°C');
             console.log('Humidity:', humidity, '%');
+            await connectDB(); //to connect db
             await sdmodel.create({temperature:temperature,
                     humidity:humidity
                 })
@@ -48,7 +49,7 @@ if (req.method === 'POST')
             }
             res.writeHead(200, { 'Content-Type': 'text/plain' });
             res.end('Data received successfully');
-    });
+    });            
 } else {
     res.writeHead(404, { 'Content-Type': 'text/plain' });
     res.end('Not found');
